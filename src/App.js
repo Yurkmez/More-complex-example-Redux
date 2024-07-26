@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/MainLayout/MainLayout';
 import AddPostForm from './components/AddPostForm';
 import PostsList from './components/PostsList';
+import SinglePostPage from './components/SinglePostPage';
 
 import './App.css';
 
@@ -19,6 +20,10 @@ function App() {
                                     <PostsList />
                                 </>
                             }
+                        />
+                        <Route
+                            path="/posts/:postId"
+                            element={<SinglePostPage />}
                         />
                     </Route>
                 </Routes>

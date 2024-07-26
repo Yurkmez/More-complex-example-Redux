@@ -13,7 +13,15 @@ const postSlise = createSlice({
             state.push(action.payload);
         },
     },
+    postUpdated(state, action) {
+        const { id, title, content } = action.payload;
+        const existingPost = state.find((post) => post.id === id);
+        if (existingPost) {
+            existingPost.title = title;
+            existingPost.content = content;
+        }
+    },
 });
 
-export const { postAdded } = postSlise.actions;
+export const { postAdded, postUpdated } = postSlise.actions;
 export default postSlise.reducer;
