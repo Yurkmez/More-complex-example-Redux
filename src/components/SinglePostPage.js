@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styles from './singlePostPage.module.css';
 
 const SinglePostPage = () => {
@@ -9,7 +9,7 @@ const SinglePostPage = () => {
     // Но как же получить id?
     // Для этого используется хук - useParams, который достает этот id в виде объекта, и чтобы
     // получить значение id - мы деструктурируем его - const { postId }
-
+    console.log(postId);
     const post = useSelector((state) =>
         state.posts.find(({ id }) => id === postId)
     );
@@ -36,6 +36,7 @@ const SinglePostPage = () => {
                 <strong>Id: </strong>
                 {post.id}
             </p>
+            <Link to={`/editPost/${post.id}`}>Edit Post</Link>
         </div>
     );
 };
